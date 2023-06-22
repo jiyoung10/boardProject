@@ -13,6 +13,7 @@ public class LoginResponse {
     private String userName;
     private String phoneNumber;
     private String createdAt;
+
     public static LoginResponse fromMemberDTO(MemberDTO memberDTO) {
         return new LoginResponse(
                 memberDTO.getId(),

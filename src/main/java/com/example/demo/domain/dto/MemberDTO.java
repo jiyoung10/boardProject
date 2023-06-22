@@ -3,7 +3,6 @@ package com.example.demo.domain.dto;
 import com.example.demo.domain.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor

@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.controller.request.JoinRequest;
 import com.example.demo.controller.request.LoginRequest;
-import com.example.demo.controller.response.JoinResponse;
 import com.example.demo.controller.response.LoginResponse;
 import com.example.demo.domain.dto.MemberDTO;
 import com.example.demo.domain.entity.Member;
