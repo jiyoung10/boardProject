@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>postList</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container my-4">
+  <h1 class="mb-4">게시판</h1>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">번호</th>
+      <th scope="col">제목</th>
+      <th scope="col">작성자</th>
+      <th scope="col">날짜</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post : ${postList}">
+      <th scope="row" th:text="${post.getId()}"></th>
+      <th>
+        <a scope="row" th:text="${post.getTitle()}" th:href="@{/post/view(id=${post.getId()})}"></a>
+      </th>
+      <th scope="row" th:text="${post.getAuthor()}"></th>
+      <th scope="row" th:text="${post.getCreatedAt()}"></th>
+    </tr>
+    </tbody>
+  </table>
+  <button id="postButton" type="button" class="btn btn-primary">글 작성</button>
+  <script>
+    document.getElementById("postButton").addEventListener("click", function() {
+      location.href = '/post';
+    });
+  </script>
+</div>
+</body>
+</html>

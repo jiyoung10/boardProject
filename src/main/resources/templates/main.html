@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Main Page</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to the Main Page!</h1>
+    <p>This is a Spring Boot project with a simple main page.</p>
+    <div>
+        <button id="joinButton" type="button" class="btn btn-primary">회원가입</button>
+        <script>
+            document.getElementById("joinButton").addEventListener("click", function() {
+                location.href = '/join';
+            });
+        </script>
+        <button id="loginButton" type="button" class="btn btn-primary">로그인</button>
+        <script>
+            document.getElementById("loginButton").addEventListener("click", function() {
+                location.href = '/login';
+            });
+        </script>
+        <button id="postListButton" type="button" class="btn btn-primary">게시판</button>
+        <script>
+            document.getElementById("postListButton").addEventListener("click", function() {
+                location.href = '/postList';
+            });
+        </script>
+    </div>
+</div>
+</body>
+</html>
