@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>postList</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+<form action="/static" method="get">
+    <br>
+    <a th:text="${loginResponse.getUserName()}"></a>
+    &nbsp<a>님이 입장하셨습니다.</a>
+<div><br>
+    <button id="postButton" type="button" class="btn btn-primary">글 작성</button>
+<script>
+    document.getElementById("postButton").addEventListener("click", function() {
+        location.href = '/post';
+    });
+</script>
+&nbsp<button id="postListButton" type="button" class="btn btn-primary">글 목록</button>
+<script>
+    document.getElementById("postListButton").addEventListener("click", function() {
+        location.href = '/postList';
+    });
+</script>
+&nbsp<button type="submit" class="btn btn-primary">로그아웃</button>
+</div>
+</form>
+</div>
+</body>
+</html>
