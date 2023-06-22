@@ -56,6 +56,15 @@ public class PostController {
         return "/board/postList";
     }
 
+    // 게시글 키워드 검색 조회
+    @GetMapping("/post/search/{keyword}")
+    public String searchPostByKeyword(@PathVariable("keyword") String keyword, Model model){
+        log.info("GET /post/search/{}", keyword);
+        List<Post> postList = postService.searchPostByKeyword(keyword);
+        model.addAttribute(postList);
+        return "/board/postList";
+    }
+
     // 게시글 상세 조회
     @GetMapping("/post/view")
     public String PostView(Long id, Model model) throws Exception {

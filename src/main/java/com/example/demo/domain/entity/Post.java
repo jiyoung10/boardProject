@@ -24,10 +24,6 @@ public class Post {
     private String content;
     private LocalDateTime createdAt = now();
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "member_id")
-//    private Member member;
-
     public Post(String title, String author, String content){
         this.author = author;
         this.title = title;

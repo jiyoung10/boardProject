@@ -12,6 +12,7 @@ public class PostResponse {
     private String title;
     private String content;
     private String createdAt;
+
     public static PostResponse fromPostDTO(PostDTO postDTO) {
         return new PostResponse(
                 postDTO.getId(),

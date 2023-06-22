@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.controller.request.JoinRequest;
 import com.example.demo.controller.request.PostRequest;
 import com.example.demo.controller.request.PostUpdateRequest;
 import com.example.demo.controller.response.PostResponse;
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -50,10 +50,16 @@ public class PostService {
         postRepository.delete(post);
     }
 
+    public List<Post> searchPostByKeyword(String keyword) {
+        List<Post> postList = postRepository.findAll().stream()
+                .filter(post -> post.getContent().contains(keyword) || post.getTitle().contains(keyword))
+                .collect(Collectors.toList());
+        return postList;
+    }
+
     public PostResponse postView(Long postId) throws Exception {
         // 게시글이 존재하지 않을 시 예외 발생
         Post post = postRepository.findById(postId).get();
-
         return PostResponse.fromPostDTO(PostDTO.fromPost(post));
     }
 

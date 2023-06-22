@@ -9,13 +9,29 @@
 <body>
 <div class="container my-4">
   <h1 class="mb-4">게시판</h1>
+  <!-- 검색창 -->
+  <script>
+    function searchKeyword() {
+      var keyword = document.getElementById('keyword').value;
+      location.href = '/post/search/' + keyword;
+    }
+  </script>
+  <form action="#" th:action="@{/post/search/}" onsubmit="event.preventDefault(); searchKeyword();">
+    <div class="input-group mb-4">
+      <input type="text" class="form-control" id="keyword" name="keyword" placeholder="검색어를 입력하세요"/>
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-primary">검색</button>
+      </div>
+    </div>
+  </form>
+  <!-- 게시판 리스트 바디 -->
   <table class="table table-bordered">
     <thead>
     <tr>
       <th scope="col">번호</th>
       <th scope="col">제목</th>
       <th scope="col">작성자</th>
-      <th scope="col">날짜</th>
+      <th scope="col">작성일</th>
     </tr>
     </thead>
     <tbody>
