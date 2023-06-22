@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > EC2-KEY-PAIR-2.pem
           chmod 600 EC2-KEY-PAIR-2.pem
-          ssh --o StrictHostKeyChecking=no -i "EC2-KEY-PAIR-2.pem" ubuntu@ec2-43-201-36-235.ap-northeast-2.compute.amazonaws.com
+          ssh -t -o StrictHostKeyChecking=no -i "EC2-KEY-PAIR-2.pem" ubuntu@ec2-43-201-36-235.ap-northeast-2.compute.amazonaws.com
           
       - name: Set executable permissions on Gradle Wrapper
         run: chmod +x ./gradlew
