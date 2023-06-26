@@ -46,4 +46,4 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > EC2-KEY-PAIR-3.pem
           chmod 600 EC2-KEY-PAIR-3.pem
-          ssh -i "EC2-KEY-PAIR-3.pem" -o StrictHostKeyChecking=no $APP_USER@$APP_HOST "pkill -f 'java.*demo-0.0.1-SNAPSHOT.jar'; nohup sudo java -jar /home/ubuntu/demo-0.0.1-SNAPSHOT.jar > log.out 2>&1 &"
+          ssh -i "EC2-KEY-PAIR-3.pem" -o StrictHostKeyChecking=no $APP_USER@$APP_HOST "pkill -f 'java.*demo-0.0.1-SNAPSHOT.jar'; nohup sudo java -jar /home/ubuntu/demo-0.0.1-SNAPSHOT.jar"
