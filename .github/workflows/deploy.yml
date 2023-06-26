@@ -20,14 +20,6 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Run EC2 instance
-        env:
-          PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
-        run: |
-          echo "$PRIVATE_KEY" > EC2-KEY-PAIR-3.pem
-          chmod 600 EC2-KEY-PAIR-3.pem
-          ssh -o StrictHostKeyChecking=no -i "EC2-KEY-PAIR-3.pem" ubuntu@ec2-13-125-87-229.ap-northeast-2.compute.amazonaws.com
-          
       - name: Set executable permissions on Gradle Wrapper
         run: chmod +x ./gradlew
 
@@ -35,8 +27,23 @@ jobs:
         run: |
           echo "$(ls)"
           ./gradlew clean bootJar
-          
-      - name: Run the JAR on the EC2 instance
+
+      - name: Copy JAR to EC2 instance
+        env:
+          PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          APP_USER: ubuntu
+          APP_HOST: ec2-13-125-87-229.ap-northeast-2.compute.amazonaws.com
         run: |
-          echo "$(ls)"
-          find build/libs -name 'demo-0.0.1-SNAPSHOT.jar' -exec sudo java -jar {} \;
+          echo "$PRIVATE_KEY" > EC2-KEY-PAIR-3.pem
+          chmod 600 EC2-KEY-PAIR-3.pem
+          scp -i "EC2-KEY-PAIR-3.pem" -o StrictHostKeyChecking=no ./build/libs/demo-0.0.1-SNAPSHOT.jar $APP_USER@$APP_HOST:/home/ubuntu/
+
+      - name: Run the JAR on the EC2 instance
+        env:
+          PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          APP_USER: ubuntu
+          APP_HOST: ec2-13-125-87-229.ap-northeast-2.compute.amazonaws.com
+        run: |
+          echo "$PRIVATE_KEY" > EC2-KEY-PAIR-3.pem
+          chmod 600 EC2-KEY-PAIR-3.pem
+          ssh -i "EC2-KEY-PAIR-3.pem" -o StrictHostKeyChecking=no $APP_USER@$APP_HOST "pkill -f 'java.*demo-0.0.1-SNAPSHOT.jar'; rm /home/ubuntu/demo-0.0.1-SNAPSHOT.jar; mv ./demo-0.0.1-SNAPSHOT.jar /home/ubuntu/; nohup sudo java -jar /home/ubuntu/demo-0.0.1-SNAPSHOT.jar > log.out 2>&1 &"
