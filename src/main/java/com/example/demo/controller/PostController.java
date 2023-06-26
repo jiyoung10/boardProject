@@ -31,7 +31,7 @@ public class PostController {
     @PostMapping("/post")
     public String savePost(@ModelAttribute PostRequest postRequest, Model model){
         model.addAttribute("postResponse", postService.savePost(postRequest));
-        return "/board/postAfter";
+        return "board/postAfter";
     }
 
     // 게시글 수정
@@ -45,7 +45,7 @@ public class PostController {
     @PostMapping("/post/delete/{id}")
     public String deletePost(@PathVariable("id") Long id) throws Exception {
         postService.delete(id);
-        return "/board/postList";
+        return "board/postList";
     }
 
     //***** 게시판 리스트 *****
@@ -53,7 +53,7 @@ public class PostController {
     public String postList(Model model){
         List<Post> postList = postService.getPostList();
         model.addAttribute(postList);
-        return "/board/postList";
+        return "board/postList";
     }
 
     // 게시글 키워드 검색 조회
@@ -62,14 +62,14 @@ public class PostController {
         log.info("GET /post/search/{}", keyword);
         List<Post> postList = postService.searchPostByKeyword(keyword);
         model.addAttribute(postList);
-        return "/board/postList";
+        return "board/postList";
     }
 
     // 게시글 상세 조회
     @GetMapping("/post/view")
     public String PostView(Long id, Model model) throws Exception {
         model.addAttribute("postView", postService.postView(id));
-        return "/board/postView";
+        return "board/postView";
     }
 
 }
