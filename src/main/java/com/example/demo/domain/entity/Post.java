@@ -9,20 +9,22 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-import static java.time.LocalDateTime.now;
-
 @Entity
 @Getter
 @Table(name = "post")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "author")
     private String author;
+    @Column(name = "title")
     private String title;
+    @Column(name = "content")
     private String content;
-    private LocalDateTime createdAt = now();
+    @Column(name = "created_at")
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     public Post(String title, String author, String content){
         this.author = author;

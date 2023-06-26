@@ -8,21 +8,24 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-import static java.time.LocalDateTime.now;
-
 @Entity
 @Getter
 @Table(name = "member")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "user_id")
     private String userId;
+    @Column(name = "password")
     private String password;
+    @Column(name = "user_name")
     private String userName;
+    @Column(name = "phone_number")
     private String phoneNumber;
-    private final LocalDateTime createdAt = now();
+    @Column(name = "created_at")
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     public Member(String userId, String password, String userName, String phoneNumber){
         this.userId = userId;
