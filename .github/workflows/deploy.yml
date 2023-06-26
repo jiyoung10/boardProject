@@ -39,4 +39,4 @@ jobs:
       - name: Run the JAR on the EC2 instance
         run: |
           echo "$(ls)"
-          sudo java -jar build/libs/demo-0.0.1-SNAPSHOT.jar
+          find build/libs -name 'demo-0.0.1-SNAPSHOT.jar' -exec sudo java -jar {} \;
