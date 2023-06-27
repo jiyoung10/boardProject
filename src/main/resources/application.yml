@@ -2,7 +2,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://172.31.47.138:3306/test
-    username: testUser
+    username: test
     password: system
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
