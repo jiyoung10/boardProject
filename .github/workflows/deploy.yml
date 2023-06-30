@@ -37,6 +37,11 @@ jobs:
           echo "$(ls)"
           ./gradlew clean bootJar
           
+      - name: Run MySQL and Check status
+        run: |
+          sudo systemctl restart mysql
+          sudo systemctl status mysql
+          
       - name: Run the JAR on the EC2 instance
         run: |
           echo "$(ls)"
