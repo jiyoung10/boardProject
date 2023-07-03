@@ -38,7 +38,7 @@ public class PostController {
     @PostMapping("/post/update/{id}")
     public String updatePost(@PathVariable("id") Long id, @ModelAttribute PostUpdateRequest postUpdateRequest, Model model) throws Exception {
         model.addAttribute("postResponse", postService.updatePost(id, postUpdateRequest));
-        return "/board/postAfter";
+        return "board/postAfter";
     }
 
     // 게시글 삭제
