@@ -37,7 +37,12 @@ jobs:
           echo "$(ls)"
           ./gradlew clean bootJar
           
+      - name: Transfer JAR to EC2
+        run: |
+          scp -i "EC2-KEY-PAIR-3.pem" ./build/libs/demo-0.0.1-SNAPSHOT.jar ubuntu@ec2-13-209-7-237.ap-northeast-2.compute.amazonaws.com:~/
+
       - name: Run the JAR on the EC2 instance
         run: |
+          ssh -i "EC2-KEY-PAIR-3.pem" ubuntu@ec2-13-209-7-237.ap-northeast-2.compute.amazonaws.com
           echo "$(ls)"
-          find build/libs -name 'demo-0.0.1-SNAPSHOT.jar' -exec sudo java -jar {} \;
+          sudo java -jar demo-0.0.1-SNAPSHOT.jar
