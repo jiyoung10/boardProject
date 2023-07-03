@@ -45,5 +45,4 @@ jobs:
       - name: Run the JAR on the EC2 instance
         run: |
           echo "$(ls)"
-          chmod 600 EC2-KEY-PAIR-3.pem
           ssh -i "EC2-KEY-PAIR-3.pem" ubuntu@ec2-13-209-7-237.ap-northeast-2.compute.amazonaws.com "sudo java -jar demo-0.0.1-SNAPSHOT.jar"
