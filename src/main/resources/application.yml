@@ -1,12 +1,12 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://13.209.7.237:3306/test
+    url: jdbc:mysql://15.164.250.16:3306/test
     username: testUser
     password: system
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         show_sql: true
