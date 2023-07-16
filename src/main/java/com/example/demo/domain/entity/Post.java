@@ -2,7 +2,6 @@ package com.example.demo.domain.entity;
 
 import com.example.demo.controller.request.PostRequest;
 import com.example.demo.controller.request.PostUpdateRequest;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

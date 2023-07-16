@@ -1,7 +1,6 @@
 package com.example.demo.domain.entity;
 
 import com.example.demo.controller.request.JoinRequest;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
