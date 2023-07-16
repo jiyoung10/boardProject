@@ -39,7 +39,7 @@ jobs:
       - name: Transfer JAR to EC2
         run: |
           chmod 600 EC2-KEY-PAIR-3.pem
-          scp -i "EC2-KEY-PAIR-3.pem" ./build/libs/demo-0.0.1-SNAPSHOT.jar ubuntu@ec2-13-209-7-237.ap-northeast-2.compute.amazonaws.com:/home/ubuntu/demo-0.0.1-SNAPSHOT.jar
+          scp -i "EC2-KEY-PAIR-3.pem" ./build/libs/demo-0.0.1-SNAPSHOT.jar ubuntu@ec2-15-164-250-16.ap-northeast-2.compute.amazonaws.com:/home/ubuntu/demo-0.0.1-SNAPSHOT.jar
       - name: Run the JAR on the EC2 instance
         run: |
           echo "$(ls)"
