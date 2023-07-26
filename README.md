@@ -31,7 +31,7 @@
 
 ▶️Usecase
 -------------
-<img width="500" alt="USECASE" src="https://file.notion.so/f/s/69d569bf-18f6-4f8e-a82d-4c42c6838cba/USECASE.png?id=0df6497b-4da3-4f9e-a13a-0b2a8996b8a1&table=block&spaceId=0e29992a-3896-481e-ba25-d94e30a8b9c8&expirationTimestamp=1690286400000&signature=4ynpZPckY45MTiUzLfO7EFldulyxOn6ltlO7mphR_ZI&downloadName=USECASE.png">
+<img width="500" alt="USECASE" src="https://file.notion.so/f/s/69d569bf-18f6-4f8e-a82d-4c42c6838cba/USECASE.png?id=0df6497b-4da3-4f9e-a13a-0b2a8996b8a1&table=block&spaceId=0e29992a-3896-481e-ba25-d94e30a8b9c8&expirationTimestamp=1690430400000&signature=mK31xqvcOapr6klTyyww6DBqZyGnPFPxgyVvxjeQS6o&downloadName=USECASE.png">
 
 
 ▶️ERD
